@@ -1,0 +1,63 @@
+h1 {
+    font-size: 60px;
+    font-family: 'Maven Pro', sans-serif;
+    font-weight: bolder;
+    color:white;
+
+}
+
+#startButton {
+    margin-top: 100px;
+    transition: padding 1s;
+}
+
+#startButton:hover {
+    padding: 10px;
+}
+
+.container {
+    margin-top: 10px;
+    font-family: 'Monda', 'sens-serif';
+    color: white;
+    padding: 25px;
+}
+
+#wrapper {
+    background-color: black;
+    border: 5px;
+    border-style: inset;
+    border-radius: 5%;
+    border-color: blue;
+    opacity: 0.9;
+}
+
+#question {
+    font-size: 20px;
+}
+
+#player {
+    font-size: 30px;
+}
+
+
+a {
+    color: red;
+    font-stretch: expanded;
+    font-size: 30px;
+    transition: font-size 1s;
+}
+
+a:hover {
+    color: blue;
+    font-stretch: expanded;
+    font-size: 35px;
+    font-weight: bolder;
+    text-decoration: none;
+}
+
+body, html {
+    background: url("https://i.ytimg.com/vi/17R5rLuImeU/maxresdefault.jpg")!important;
+    height: 100%;
+    background-position: center;
+    background-size: cover;
+}
