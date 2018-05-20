@@ -1,8 +1,7 @@
 h1 {
-    font-size: 60px;
-    font-family: 'Maven Pro', sans-serif;
-    font-weight: bolder;
-    color:white;
+    font-size: 50px;
+    font-family: 'Faster One', cursive;
+    color: white;
 
 }
 
@@ -56,8 +55,19 @@ a:hover {
 }
 
 body, html {
-    background: url("https://i.ytimg.com/vi/17R5rLuImeU/maxresdefault.jpg")!important;
+    background: url("../images/background.jpg")!important;
     height: 100%;
     background-position: center;
     background-size: cover;
+}
+
+#time {
+    color: red;
+    font-size: 30px;
+    font-family: 'Wallpoet', cursive;
+    border: 2px;
+    border-color: red;
+    border-style: solid;
+    border-radius: 25%;
+    padding: 10px;
 }

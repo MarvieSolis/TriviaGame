@@ -1,6 +1,6 @@
 // Variables
 
-var timer = 15;
+var timer = 24;
 var correctScore = 0;
 var incorrectScore = 0;
 var timeoutScore = 0;
@@ -12,6 +12,20 @@ obj.volume = 0.1;
 obj.autoPlay = true;
 obj.preLoad = true;
 obj.controls = true;
+
+var buzzer = document.createElement("audio");
+buzzer.src = "./assets/audio/buzzer.mp3";
+buzzer.volume = 0.2;
+buzzer.autoPlay = false;
+buzzer.preLoad = true;
+buzzer.controls =false;
+
+var swish = document.createElement("audio");
+swish.src = "./assets/audio/swish.mp3";
+swish.volume = 0.2;
+swish.autoPlay = false;
+swish.preLoad = true;
+swish.controls =false;
 
 var questions = [{
 
@@ -159,7 +173,7 @@ function gameStart() {
 
 // Create question on screen
 function generateQuestion() {
-    var qTimer = "<div class='row'><div class='mx-auto'><p id='time'>Time Left: 15</p></div></div>";
+    var qTimer = "<div class='row'><div class='mx-auto'><div id='time'>24</div></div></div>";
     var qQuestion = "<div class='row'><div class='mx-auto'><p id='question'></p></div></div>";
     var qAnswers = "<div class='row'><div class='mx-auto'><a class='choice' id='answer1' href='#'></a></div></div> <div class='row'><div class='mx-auto'><a class='choice' id='answer2' href='#'></a></div></div> <div class='row'><div class='mx-auto'><a class='choice' id='answer3' href='#'></a></div></div> <div class='row'><div class='mx-auto'><a class='choice' id='answer4' href='#'></a></div></div>";
 
@@ -176,15 +190,16 @@ function generateQuestion() {
 
 // Timer function
 function countdown() {
-    clock = setInterval(fifteenSeconds, 1000);
-        function fifteenSeconds() {
+    clock = setInterval(shotClock, 1000);
+        function shotClock() {
             if (timer === 0) {
+                buzzer.play();
                 clearInterval(clock);
                 timeoutLoss();
             }
             if (timer > 0) {
                 timer--;
-                $("#time").html("Time Left: " + timer); 
+                $("#time").html(timer); 
             }
         }
           
@@ -251,7 +266,7 @@ function standby() {
     if (progress < questions.length-1) {
         progress++;
         generateQuestion();
-        timer = 15;
+        timer = 24;
         countdown();
     }
     else {
@@ -291,6 +306,7 @@ $("#startButton").on("click", function() {
 $("body").on("click", ".choice", function() {
     selected = $(this).text();
     if (selected === questions[progress].correctName) {
+        swish.play();
         correctChoice();
         clearInterval(clock);
     }
